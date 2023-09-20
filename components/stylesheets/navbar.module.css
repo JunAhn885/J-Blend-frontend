@@ -1,3 +1,71 @@
-middle {
+.navbar{
     
 }
+
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1120px;
+    margin: auto;
+}
+
+.company-logo {
+    height: auto;
+}
+
+.shopping-cart {
+    display:flex;
+    flex-direction: row;
+}
+
+.shopping-cart-left {
+
+}
+
+.shopping-cart-right {
+    display:flex;
+    flex-direction: column;
+}
+
+.search-bar input {
+    max-width: 400px;
+    width: 20vw;
+    height: 35px;
+    border-radius: 6px 0px 0px 6px;
+    align-items: center;
+    border:0.4px ridge #666666;
+    border-right: none;
+    padding-left: 20px;  
+}
+
+.search-bar button {
+    background: #00B207;
+    /* height = input height + 5  This is due to the default padding */
+    height: 38.5px;
+    border-radius: 0px 6px 6px 0px;
+    color: white;
+    padding: 0px 24px;
+    border-style:none;
+}
+
+.fa-search {
+    position: absolute;
+    left: 10px; /* Adjust the left positioning as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333; /* Icon color */
+  }
+
+.quantity {
+    position: absolute;
+    padding: 16px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--gray-scale-white, #FFF);
+    background: var(--branding-success-dark, #2C742F);
+}
+
+  .price {
+    font-weight: 500;
+  }
