@@ -1,0 +1,22 @@
+.menu-item-whole {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 50vw;
+}
+
+.item-box {
+    display:flex;
+    flex-direction: row;
+    border: 1px solid rgb(200, 200, 200);
+    height: 130px;
+}
+
+.info {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.item-box img {
+    margin: auto;
+    margin-right: 40px;
+}
