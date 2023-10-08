@@ -1,13 +1,14 @@
 .menu-item-whole {
-    max-width: 1600px;
+    max-width: 2600px;
     margin: 0 auto;
-    width: 50vw;
+    width: 70vw;
 }
 
 .item-box {
     display:flex;
     flex-direction: row;
     border: 1px solid rgb(200, 200, 200);
+    border-radius: 10px;
     height: 130px;
 }
 
@@ -16,7 +17,26 @@
     margin-right: 40px;
 }
 
+.info p {
+    margin: 0;
+}
+
+.info p {
+    margin-top: 13px;
+}
+
 .item-box img {
     margin: auto;
     margin-right: 40px;
+    max-height:100%; max-width:100%
 }
+
+.description-container {
+    width: 30vw;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
