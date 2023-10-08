@@ -6,8 +6,8 @@ export default function Menu() {
     return(
         <div>
             <Heading/>
-            <Item/>
             <Navbar/>
+            <Item/>
         </div>
     )
 }
