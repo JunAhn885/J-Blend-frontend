@@ -58,7 +58,9 @@ export default function Item() {
                 <div className={styles["item-box"]}>
                     <div className={styles.info}>
                         <p>Chirashi</p>
-                        <p>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
+                        <div className={styles["description-container"]}>    
+                            <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
+                        </div>
                         <p>$18.75</p>
                     </div>
                     <Image
@@ -67,6 +69,8 @@ export default function Item() {
                         height="100"
                     />
                 </div>
+
+                
             </div>
         </div>
     )
