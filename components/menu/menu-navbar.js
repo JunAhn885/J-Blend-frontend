@@ -7,7 +7,7 @@ export default function Navbar() {
     
     const navbar_elements = menu_categories.map((item) => {
         return(
-            <a href={`#${item}`}>{item}</a>
+            <a className={styles["hover-underline-animation"]}href={`#${item}`}>{item}</a>
         )
     })
     
