@@ -49,65 +49,51 @@ export default function Item() {
                 "Price": 3.25
             }
         ]},
-
     ]
+
+    // processes the list of item objects
+    function processItem(item_type_obj, key){
+        
+        const item_jsx = item_type_obj[key].map(item => {
+            return(
+                <div className={styles["item-box"]}>
+                    <div className={styles.info}>
+                        <p>{item["Name"]}</p>
+                        <div className={styles["description-container"]}>    
+                            <p className={styles.description}>{item["Description"]}</p>
+                        </div>
+                        <p>{`$${item["Price"]}`}</p>
+                    </div>
+                    <Image
+                        src="/chirashi.jpeg"
+                        width="100"
+                        height="100"
+                        alt="Chirashi"
+                    />
+                </div>
+            )
+        })
+        return item_jsx
+    }
+
+    // passes list of item objects per item type to the processItem function
+    const item_type_component = menu_item.map(item_type_obj => {
+        const item_type = Object.keys(item_type_obj)[0]
+        const item = processItem(item_type_obj, item_type)
+
+        return(
+            <div className={styles["item-type"]}>   
+                <h1>{item_type}</h1>
+                <div className={styles["item-grid"]}>
+                    {item}
+                </div>
+            </div> 
+        )
+    })
     
     return(
         <div className={styles["menu-item-whole"]}>
-            <div className={styles["item-type"]}>
-                <h1>Donburi</h1>
-                <div className={styles["item-grid"]}>
-                    <div className={styles["item-box"]}>
-                        <div className={styles.info}>
-                            <p>Chirashi</p>
-                            <div className={styles["description-container"]}>    
-                                <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
-                            </div>
-                            <p>$18.75</p>
-                        </div>
-                        <Image
-                            src="/chirashi.jpeg"
-                            width="100"
-                            height="100"
-                        />
-                    </div>
-
-                    <div className={styles["item-box"]}>
-                        <div className={styles.info}>
-                            <p>Chirashi</p>
-                            <div className={styles["description-container"]}>    
-                                <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
-                            </div>
-                            <p>$18.75</p>
-                        </div>
-                        <Image
-                            src="/chirashi.jpeg"
-                            width="100"
-                            height="100"
-                        />
-                    </div>
-
-                    <div className={styles["item-box"]}>
-                        <div className={styles.info}>
-                            <p>Chirashi</p>
-                            <div className={styles["description-container"]}>    
-                                <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
-                            </div>
-                            <p>$18.75</p>
-                        </div>
-                        <Image
-                            src="/chirashi.jpeg"
-                            width="100"
-                            height="100"
-                        />
-                    </div>
-
-                    
-
-                </div>
-
-                
-            </div>
+            {item_type_component}
         </div>
     )
 }
