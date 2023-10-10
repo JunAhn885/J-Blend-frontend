@@ -1,6 +1,10 @@
 .full-width {
     width: 100%;
     border-bottom: 1px solid rgb(200, 200, 200);
+    position: sticky;
+    top:0px;
+    background-color: white;
+    z-index: 2;
 }
 
 .nav-wrapper {
@@ -17,6 +21,7 @@
     color: black;
     text-decoration:none;
     margin-right: 20px;
+    margin-top: 20px;
 }
 
 .hover-underline-animation {

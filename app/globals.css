@@ -1,8 +1,10 @@
 html{
   font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
+  margin-top: -20px;
 }

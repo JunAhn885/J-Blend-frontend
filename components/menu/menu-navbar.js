@@ -19,7 +19,6 @@ export default function Navbar() {
                     {navbar_elements}
                 </ul>
             </div>
-            
         </div>
     )
 }
