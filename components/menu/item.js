@@ -35,6 +35,31 @@ export default function Item() {
                 "Name": "Green Salad",
                 "Description": "mixed greens, tomato, cucumber, ginger dressing",
                 "Price": 6.95
+            },
+            {
+                "Name": "Crab & Shrimp Salad",
+                "Description": "crab, shrimp, masago, cucumber, tomato, greens with citrus mayo or ginger dressing",
+                "Price": 9.95
+            },
+            {
+                "Name": "Crab & Shrimp Salad",
+                "Description": "crab, shrimp, masago, cucumber, tomato, greens with citrus mayo or ginger dressing",
+                "Price": 9.95
+            },
+            {
+                "Name": "Crab & Shrimp Salad",
+                "Description": "crab, shrimp, masago, cucumber, tomato, greens with citrus mayo or ginger dressing",
+                "Price": 9.95
+            },
+            {
+                "Name": "Crab & Shrimp Salad",
+                "Description": "crab, shrimp, masago, cucumber, tomato, greens with citrus mayo or ginger dressing",
+                "Price": 9.95
+            },
+            {
+                "Name": "Crab & Shrimp Salad",
+                "Description": "crab, shrimp, masago, cucumber, tomato, greens with citrus mayo or ginger dressing",
+                "Price": 9.95
             }
         ]},
         {"Soup": [
@@ -47,13 +72,27 @@ export default function Item() {
                 "Name": "Asari Miso Soup",
                 "Description": "manila clam, scallions",
                 "Price": 3.25
-            }
+            },
+            {
+                "Name": "Miso Soup",
+                "Description": "aka (red) + shiro (white) miso, tofu, seaweed, scallions",
+                "Price": 2.25
+            },
+            {
+                "Name": "Miso Soup",
+                "Description": "aka (red) + shiro (white) miso, tofu, seaweed, scallions",
+                "Price": 2.25
+            },
+            {
+                "Name": "Miso Soup",
+                "Description": "aka (red) + shiro (white) miso, tofu, seaweed, scallions",
+                "Price": 2.25
+            },
         ]},
     ]
 
     // processes the list of item objects
     function processItem(item_type_obj, key){
-        
         const item_jsx = item_type_obj[key].map(item => {
             return(
                 <div className={styles["item-box"]}>
@@ -73,6 +112,7 @@ export default function Item() {
                 </div>
             )
         })
+        
         return item_jsx
     }
 
@@ -83,7 +123,7 @@ export default function Item() {
 
         return(
             <div className={styles["item-type"]}>   
-                <h1>{item_type}</h1>
+                <h1 id={item_type}>{item_type}</h1>
                 <div className={styles["item-grid"]}>
                     {item}
                 </div>
