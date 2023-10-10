@@ -51,23 +51,59 @@ export default function Item() {
         ]},
 
     ]
+    
     return(
         <div className={styles["menu-item-whole"]}>
             <div className={styles["item-type"]}>
                 <h1>Donburi</h1>
-                <div className={styles["item-box"]}>
-                    <div className={styles.info}>
-                        <p>Chirashi</p>
-                        <div className={styles["description-container"]}>    
-                            <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
+                <div className={styles["item-grid"]}>
+                    <div className={styles["item-box"]}>
+                        <div className={styles.info}>
+                            <p>Chirashi</p>
+                            <div className={styles["description-container"]}>    
+                                <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
+                            </div>
+                            <p>$18.75</p>
                         </div>
-                        <p>$18.75</p>
+                        <Image
+                            src="/chirashi.jpeg"
+                            width="100"
+                            height="100"
+                        />
                     </div>
-                    <Image
-                        src="/chirashi.jpeg"
-                        width="100"
-                        height="100"
-                    />
+
+                    <div className={styles["item-box"]}>
+                        <div className={styles.info}>
+                            <p>Chirashi</p>
+                            <div className={styles["description-container"]}>    
+                                <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
+                            </div>
+                            <p>$18.75</p>
+                        </div>
+                        <Image
+                            src="/chirashi.jpeg"
+                            width="100"
+                            height="100"
+                        />
+                    </div>
+
+                    <div className={styles["item-box"]}>
+                        <div className={styles.info}>
+                            <p>Chirashi</p>
+                            <div className={styles["description-container"]}>    
+                                <p className={styles.description}>tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi</p>
+                            </div>
+                            <p>$18.75</p>
+                        </div>
+                        <Image
+                            src="/chirashi.jpeg"
+                            width="100"
+                            height="100"
+                        />
+                    </div>
+
+                    
+
                 </div>
 
                 

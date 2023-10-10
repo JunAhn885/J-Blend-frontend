@@ -1,7 +1,13 @@
 .menu-item-whole {
     max-width: 2600px;
     margin: 0 auto;
-    width: 70vw;
+    width: 60vw;
+}
+
+.item-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 50%);
 }
 
 .item-box {
@@ -10,11 +16,12 @@
     border: 1px solid rgb(200, 200, 200);
     border-radius: 10px;
     height: 130px;
+    
 }
 
 .info {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 30px;
+    margin-right: 20px;
 }
 
 .info p {
@@ -27,12 +34,12 @@
 
 .item-box img {
     margin: auto;
-    margin-right: 40px;
+    margin-right: 30px;
     max-height:100%; max-width:100%
 }
 
 .description-container {
-    width: 30vw;
+    width: 100%;
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Limit to 2 lines */
     -webkit-box-orient: vertical;
