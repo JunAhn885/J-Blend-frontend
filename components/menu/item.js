@@ -1,5 +1,6 @@
 import styles from 'components/stylesheets/item.module.css'
 import Image from "next/image"
+import ItemModal from './item-modal'
 
 export default function Item() {
     const menu_item = [
@@ -133,6 +134,7 @@ export default function Item() {
     
     return(
         <div className={styles["menu-item-whole"]}>
+            <ItemModal/>
             {item_type_component}
         </div>
     )
