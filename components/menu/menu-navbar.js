@@ -1,4 +1,5 @@
 import styles from 'components/stylesheets/menu-navbar.module.css'
+import Image from 'next/image'
 
 export default function Navbar() {
     
@@ -18,6 +19,13 @@ export default function Navbar() {
                 <ul className={styles["menu-navbar"]}>
                     {navbar_elements}
                 </ul>
+                <Image
+                    src="/cart.svg"
+                    width="36"
+                    height="36"
+                    alt="cart"
+                    className={styles.cart}
+                />
             </div>
         </div>
     )
