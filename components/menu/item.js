@@ -1,8 +1,11 @@
+'use client'
 import styles from 'components/stylesheets/item.module.css'
 import Image from "next/image"
 import ItemModal from './item-modal'
+import { useState, useEffect } from 'react'
 
 export default function Item() {
+    // currently a fake data, this will be retrieved using an API call
     const menu_item = [
         {"Donburi": [
             {
@@ -92,11 +95,20 @@ export default function Item() {
         ]},
     ]
 
+    const [openModal, setOpenModal] = useState(false)
+    const [selectedItem, setSelectedItem] = useState(null)
+
+
     // processes the list of item objects
     function processItem(item_type_obj, key){
         const item_jsx = item_type_obj[key].map(item => {
             return(
-                <div className={styles["item-box"]}>
+                <div onClick={()=> {
+                    setOpenModal(true)
+                    setSelectedItem(item)
+                    }}
+                    className={styles["item-box"]}
+                >
                     <div className={styles.info}>
                         <p>{item["Name"]}</p>
                         <div className={styles["description-container"]}>    
@@ -113,9 +125,24 @@ export default function Item() {
                 </div>
             )
         })
-        
+
         return item_jsx
     }
+
+    function renderItemModal(){
+        if (selectedItem == null){
+            return null
+        } else {
+            return(
+                <ItemModal
+                open = {openModal}
+                setOpen = {setOpenModal}
+                item_obj = {selectedItem}
+                />
+            )
+        }
+    }
+    
 
     // passes list of item objects per item type to the processItem function
     const item_type_component = menu_item.map(item_type_obj => {
@@ -134,7 +161,7 @@ export default function Item() {
     
     return(
         <div className={styles["menu-item-whole"]}>
-            <ItemModal/>
+            {renderItemModal()}
             {item_type_component}
         </div>
     )

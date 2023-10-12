@@ -1,19 +1,10 @@
 'use client'
 import styles from 'components/stylesheets/item-modal.module.css'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export default function ItemModal({}){
-    //test varible. item_obj will be passed down as a prop from the parent
-    const item_obj = {
-        "Name": "Chirashi",
-        "Description": "tuna, chopped fatty tuna, salmon, ocean trout, albacore, shrimp, fresh water eel, masago with fresh wasabi",
-        "Price": 18.95
-    }
-    
+export default function ItemModal({open, setOpen, item_obj}){
     const [count, setCount] = useState(1)
-    // by default, total price will be set as the price from the item_obj
-    const [totalPrice, setTotalPrice] = useState(item_obj["Price"])
     
     function decCounter(){
         setCount(count - 1)
@@ -28,6 +19,24 @@ export default function ItemModal({}){
         return Math.round(price * 100) / 100
     }
 
+    // disables dec counter buttom if count == 1 as we cannot have 0 or negative items
+    function decCounterButton(){
+        if (count === 1){
+            return(
+                <button onClick={decCounter} disabled>-</button>
+            )
+        }  else{
+            return(
+                <button onClick={decCounter}>-</button>
+            )
+        }
+    }
+
+    // do not display the modal if open is false
+    if (open == false){
+        return null
+    } 
+
     return (
         <div>
             <Image
@@ -40,11 +49,14 @@ export default function ItemModal({}){
             <h2>{item_obj["Price"]}</h2>
             <h3>{item_obj["Description"]}</h3>
             <div>
-                <button onClick={decCounter}>-</button>
+                {decCounterButton()}
                 <p>{count}</p>
                 <button onClick={incCounter}>+</button>
             </div>
-            <button>{`Add to order ${calTotalPrice()}`}</button>
+            <div>
+                <button onClick={()=>{setOpen(false)}}>x</button>
+                <button>{`Add to order ${calTotalPrice()}`}</button>
+            </div>
             <form>
                 <label for="fname">Special Instructions</label>
                 <input type="text" id="fname" name="fname"/>
