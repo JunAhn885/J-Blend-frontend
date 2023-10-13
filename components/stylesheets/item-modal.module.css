@@ -21,10 +21,9 @@
     z-index: 3;
     background-color: white;
     overflow-y:auto;
-    max-height: 900px;
+    max-height: 800px;
     height: 90vh;
     border-radius: 4px 4px 3px 3px;
-    
 }
 
 .modal-content {

@@ -1,0 +1,16 @@
+.heading {
+    width: 70vw;
+    max-width: 2600px;
+    margin: 0 auto;
+}
+
+.event-notes {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
