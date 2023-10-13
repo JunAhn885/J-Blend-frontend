@@ -23,7 +23,7 @@ export default function ItemModal({open, setOpen, item_obj}){
     function decCounterButton(){
         if (count === 1){
             return(
-                <button onClick={decCounter} disabled>-</button>
+                <button onClick={decCounter} disabled className={styles["button-disabled"]}>-</button>
             )
         }  else{
             return(
@@ -38,29 +38,48 @@ export default function ItemModal({open, setOpen, item_obj}){
     } 
 
     return (
-        <div>
-            <Image
-                src="/chirashi.jpeg"
-                width="300"
-                height="300"
-                alt="Chirashi"
-            />
-            <h1>{item_obj["Name"]}</h1>
-            <h2>{item_obj["Price"]}</h2>
-            <h3>{item_obj["Description"]}</h3>
-            <div>
-                {decCounterButton()}
-                <p>{count}</p>
-                <button onClick={incCounter}>+</button>
+        <div onClick={()=>{
+            setOpen(false)
+            setCount(1)
+            }}
+            className={styles.overlay}
+        >
+            <div onClick={(e) => {
+                    e.stopPropagation()
+                }}
+                className={styles.modal}
+            >
+                <div className={styles["modal-content"]}>
+                    <Image
+                        src="/chirashi.jpeg"
+                        width="300"
+                        height="300"
+                        alt="Chirashi"
+                    />
+                    <h1>{item_obj["Name"]}</h1>
+                    <h2>{`$${item_obj["Price"]}`}</h2>
+                    <h3>{item_obj["Description"]}</h3>
+                    <div className={styles["quantity-button-container"]}>
+                        {decCounterButton()}
+                        <div className={styles["center-vertically"]}>
+                            <p>{count}</p>
+                        </div>
+                        <button onClick={incCounter}>+</button>
+                    </div>
+                    <form className={styles["special-instruction"]}>
+                        <label for="fname">Special Instructions:</label>
+                        <input type="text" id="fname" name="fname"/>
+                    </form>
+                    <div className={styles["exit-add-button-container"]}>
+                        <button onClick={()=>{
+                            setOpen(false)
+                            setCount(1)
+                            }} 
+                            className={styles["exit-button"]}>x</button>
+                        <button className={styles["add-button"]}>{`Add to order $${calTotalPrice()}`}</button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <button onClick={()=>{setOpen(false)}}>x</button>
-                <button>{`Add to order ${calTotalPrice()}`}</button>
-            </div>
-            <form>
-                <label for="fname">Special Instructions</label>
-                <input type="text" id="fname" name="fname"/>
-            </form>
         </div>
     )
 }
