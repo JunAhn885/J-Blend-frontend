@@ -4,8 +4,8 @@ import styles from "components/stylesheets/item.module.css";
 import Image from "next/image";
 import ItemModal from "./item-modal";
 import { useState } from "react";
-import { menu_item } from "@/data/menu_item";
-import { formatCurrency } from "@/utilities/formatCurrency";
+import { menu_item } from "data/menu_item";
+import { formatCurrency } from "utilities/formatCurrency";
 
 export default function Item() {
   const [openModal, setOpenModal] = useState(false);

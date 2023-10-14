@@ -3,7 +3,7 @@
 import styles from "components/stylesheets/item-modal.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import { formatCurrency } from "@/utilities/formatCurrency";
+import { formatCurrency } from "utilities/formatCurrency";
 
 export default function ItemModal({ open, setOpen, item_obj }) {
   const [count, setCount] = useState(1);
@@ -93,9 +93,9 @@ export default function ItemModal({ open, setOpen, item_obj }) {
             >
               x
             </button>
-            <button
-              className={styles["add-button"]}
-            >{`Add to order $${calTotalPrice()}`}</button>
+            <button className={styles["add-button"]}>
+              {`Add to order ${formatCurrency(calTotalPrice())}`}
+            </button>
           </div>
         </div>
       </div>
