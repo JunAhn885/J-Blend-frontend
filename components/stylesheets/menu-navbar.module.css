@@ -55,10 +55,22 @@
   transform-origin: bottom left;
 }
 
+.shopping-cart {
+  display: flex;
+  flex-direction: row;
+}
+
+.shopping-cart:hover {
+  cursor: pointer;
+}
+
 .cart {
   margin-top: 20px;
 }
 
-.cart:hover {
-  cursor: pointer;
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 20px;
 }
