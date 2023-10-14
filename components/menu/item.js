@@ -22,6 +22,7 @@ export default function Item() {
           }}
           className={styles["item-box"]}
           id={item.id}
+          key={item.id}
         >
           <div className={styles.info}>
             <p>{item["Name"]}</p>
@@ -60,7 +61,7 @@ export default function Item() {
     const item = processItem(item_type_obj, item_type);
 
     return (
-      <div className={styles["item-type"]}>
+      <div className={styles["item-type"]} key={item_type}>
         <h1 id={item_type}>{item_type}</h1>
         <div className={styles["item-grid"]}>{item}</div>
       </div>
