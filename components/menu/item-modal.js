@@ -73,7 +73,7 @@ export default function ItemModal({ open, setOpen, item_obj }) {
             <button onClick={incCounter}>+</button>
           </div>
           <form className={styles["special-instruction"]}>
-            <label for="fname">Special Instructions:</label>
+            <label>Special Instructions:</label>
             <input
               type="text"
               id="instruction"
