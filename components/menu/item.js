@@ -3,7 +3,8 @@ import styles from 'components/stylesheets/item.module.css'
 import Image from "next/image"
 import ItemModal from './item-modal'
 import { useState, useEffect } from 'react'
-import { menu_item } from '@/app/data/menu_item'
+import { menu_item } from '@/data/menu_item'
+import { formatCurrency } from '@/utilities/formatCurrency'
 
 export default function Item() {
     const [openModal, setOpenModal] = useState(false)
@@ -18,13 +19,14 @@ export default function Item() {
                     setSelectedItem(item)
                     }}
                     className={styles["item-box"]}
+                    id={item.id}
                 >
                     <div className={styles.info}>
                         <p>{item["Name"]}</p>
                         <div className={styles["description-container"]}>    
                             <p className={styles.description}>{item["Description"]}</p>
                         </div>
-                        <p>{`$${item["Price"]}`}</p>
+                        <p>{formatCurrency(item["Price"])}</p>
                     </div>
                     <Image
                         src="/chirashi.jpeg"

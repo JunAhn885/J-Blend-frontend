@@ -2,6 +2,7 @@
 import styles from 'components/stylesheets/item-modal.module.css'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { formatCurrency } from '@/utilities/formatCurrency'
 
 export default function ItemModal({open, setOpen, item_obj}){
     const [count, setCount] = useState(1)
@@ -61,7 +62,7 @@ export default function ItemModal({open, setOpen, item_obj}){
                         alt="Chirashi"
                     />
                     <h1>{item_obj["Name"]}</h1>
-                    <h2>{`$${item_obj["Price"]}`}</h2>
+                    <h2>{formatCurrency(item_obj["Price"])}</h2>
                     <h3>{item_obj["Description"]}</h3>
                     <div className={styles["quantity-button-container"]}>
                         {decCounterButton()}
