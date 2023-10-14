@@ -3,7 +3,7 @@ import styles from 'components/stylesheets/item.module.css'
 import Image from "next/image"
 import ItemModal from './item-modal'
 import { useState, useEffect } from 'react'
-import { menu_item } from '@/public/menu_item'
+import { menu_item } from '@/app/data/menu_item'
 
 export default function Item() {
     const [openModal, setOpenModal] = useState(false)

@@ -5,7 +5,10 @@ import { useState, useEffect } from 'react'
 
 export default function ItemModal({open, setOpen, item_obj}){
     const [count, setCount] = useState(1)
-    
+    const [instruction, setInstruction] = useState(null)
+
+    console.log(instruction)
+
     function decCounter(){
         setCount(count - 1)
     }
@@ -19,6 +22,7 @@ export default function ItemModal({open, setOpen, item_obj}){
         return Math.round(price * 100) / 100
     }
 
+    
     // disables dec counter buttom if count == 1 as we cannot have 0 or negative items
     function decCounterButton(){
         if (count === 1){
@@ -68,7 +72,7 @@ export default function ItemModal({open, setOpen, item_obj}){
                     </div>
                     <form className={styles["special-instruction"]}>
                         <label for="fname">Special Instructions:</label>
-                        <input type="text" id="fname" name="fname"/>
+                        <input type="text" id="instruction" name="special instruction" onChange={e=>{setInstruction(e.target.value)}}/>
                     </form>
                     <div className={styles["exit-add-button-container"]}>
                         <button onClick={()=>{

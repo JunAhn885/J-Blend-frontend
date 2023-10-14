@@ -19,13 +19,15 @@ export default function Navbar() {
                 <ul className={styles["menu-navbar"]}>
                     {navbar_elements}
                 </ul>
-                <Image
-                    src="/cart.svg"
-                    width="36"
-                    height="36"
-                    alt="cart"
-                    className={styles.cart}
-                />
+                <div className={styles["shopping-cart"]}></div>
+                    <Image
+                        src="/cart.svg"
+                        width="36"
+                        height="36"
+                        alt="cart"
+                        className={styles.cart}
+                    />
+                    <div className={styles["cart-quantity"]}>8</div>
             </div>
         </div>
     )
