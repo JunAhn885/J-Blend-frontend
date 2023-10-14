@@ -9,8 +9,6 @@ export default function ItemModal({ open, setOpen, item_obj }) {
   const [count, setCount] = useState(1);
   const [instruction, setInstruction] = useState(null);
 
-  console.log(instruction);
-
   function decCounter() {
     setCount(count - 1);
   }
