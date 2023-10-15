@@ -1,5 +1,4 @@
 import styles from "components/stylesheets/menu-footer.module.css";
-import React from "react";
 
 export default function Footer() {
   return (

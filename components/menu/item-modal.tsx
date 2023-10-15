@@ -1,15 +1,23 @@
 /* eslint-disable react/react-in-jsx-scope */
-"use client";
 import styles from "components/stylesheets/item-modal.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import { formatCurrency } from "@/utilities/formatCurrency";
+import { formatCurrency } from "utilities/formatCurrency.ts";
+import { MenuItem } from "@/data/menu_item";
 
-export default function ItemModal({ open, setOpen, item_obj }) {
+export default function ItemModal({
+  // props
+  open,
+  setOpen,
+  item_obj,
+}: {
+  // types of each props
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  item_obj: MenuItem;
+}) {
   const [count, setCount] = useState(1);
-  const [instruction, setInstruction] = useState(null);
-
-  console.log(instruction);
+  const [instruction, setInstruction] = useState("");
 
   function decCounter() {
     setCount(count - 1);
@@ -73,7 +81,7 @@ export default function ItemModal({ open, setOpen, item_obj }) {
             <button onClick={incCounter}>+</button>
           </div>
           <form className={styles["special-instruction"]}>
-            <label for="fname">Special Instructions:</label>
+            <label>Special Instructions:</label>
             <input
               type="text"
               id="instruction"
@@ -93,9 +101,9 @@ export default function ItemModal({ open, setOpen, item_obj }) {
             >
               x
             </button>
-            <button
-              className={styles["add-button"]}
-            >{`Add to order $${calTotalPrice()}`}</button>
+            <button className={styles["add-button"]}>
+              {`Add to order ${formatCurrency(calTotalPrice())}`}
+            </button>
           </div>
         </div>
       </div>

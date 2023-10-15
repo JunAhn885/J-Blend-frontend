@@ -1,7 +1,13 @@
 .footer {
   background: black;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer ul {
   color: azure;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }

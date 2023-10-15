@@ -1,4 +1,15 @@
-export const menu_item = [
+export type MenuItem = {
+  id: number;
+  Name: string;
+  Description: string;
+  Price: number;
+};
+
+export type MenuCategory = {
+  [key: string]: MenuItem[];
+};
+
+export const menu_item: MenuCategory[] = [
   {
     Donburi: [
       {

@@ -8,7 +8,11 @@ export default function Navbar() {
 
   const navbar_elements = menu_categories.map((item) => {
     return (
-      <a className={styles["hover-underline-animation"]} href={`#${item}`}>
+      <a
+        className={styles["hover-underline-animation"]}
+        key={item}
+        href={`#${item}`}
+      >
         {item}
       </a>
     );
@@ -19,15 +23,16 @@ export default function Navbar() {
       <div className={styles["nav-wrapper"]}>
         <div className={styles.search}></div>
         <ul className={styles["menu-navbar"]}>{navbar_elements}</ul>
-        <div className={styles["shopping-cart"]}></div>
-        <Image
-          src="/cart.svg"
-          width="36"
-          height="36"
-          alt="cart"
-          className={styles.cart}
-        />
-        <div className={styles["cart-quantity"]}>8</div>
+        <div className={styles["shopping-cart"]}>
+          <Image
+            src="/cart.svg"
+            width="36"
+            height="36"
+            alt="cart"
+            className={styles.cart}
+          />
+          <div className={styles["cart-quantity"]}>8</div>
+        </div>
       </div>
     </div>
   );
