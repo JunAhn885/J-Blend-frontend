@@ -4,16 +4,16 @@ import styles from "components/stylesheets/item.module.css";
 import Image from "next/image";
 import ItemModal from "./item-modal";
 import { useState } from "react";
-import { menu_item } from "data/menu_item";
+import { menu_item, MenuItem, MenuCategory } from "data/menu_item";
 import { formatCurrency } from "utilities/formatCurrency";
 
 export default function Item() {
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
 
   // processes the list of item objects
-  function processItem(item_type_obj, key) {
-    const item_jsx = item_type_obj[key].map((item) => {
+  function processItem(item_type_obj: MenuCategory, key: string) {
+    const item_jsx = item_type_obj[key].map((item: MenuItem) => {
       return (
         <div
           onClick={() => {
@@ -39,6 +39,19 @@ export default function Item() {
     return item_jsx;
   }
 
+  // passes list of item objects per item type to the processItem function
+  const item_type_component = menu_item.map((item_type_obj: MenuCategory) => {
+    const item_type = Object.keys(item_type_obj)[0];
+    const item = processItem(item_type_obj, item_type);
+
+    return (
+      <div className={styles["item-type"]} key={item_type}>
+        <h1 id={item_type}>{item_type}</h1>
+        <div className={styles["item-grid"]}>{item}</div>
+      </div>
+    );
+  });
+
   // by default, do not render the Modal unless user clicks on the item
   // which then selectedItem is updated and modal is rendered
   function renderItemModal() {
@@ -54,19 +67,6 @@ export default function Item() {
       );
     }
   }
-
-  // passes list of item objects per item type to the processItem function
-  const item_type_component = menu_item.map((item_type_obj) => {
-    const item_type = Object.keys(item_type_obj)[0];
-    const item = processItem(item_type_obj, item_type);
-
-    return (
-      <div className={styles["item-type"]} key={item_type}>
-        <h1 id={item_type}>{item_type}</h1>
-        <div className={styles["item-grid"]}>{item}</div>
-      </div>
-    );
-  });
 
   return (
     <div className={styles["menu-item-whole"]}>
