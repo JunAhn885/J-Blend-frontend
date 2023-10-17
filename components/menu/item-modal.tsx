@@ -6,7 +6,7 @@ import { formatCurrency } from "utilities/formatCurrency.ts";
 import { MenuItem } from "@/data/menu_item";
 import useCounter from "hooks/useCounter.ts";
 import calTotalPrice from "@/utilities/calTotalPrice";
-import addItemToCart from "@/utilities/addItemToCart";
+import addItemToCart from "@/context/cartContext";
 
 export default function ItemModal({
   // props
