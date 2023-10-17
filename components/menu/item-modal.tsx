@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import styles from "components/stylesheets/item-modal.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { formatCurrency } from "utilities/formatCurrency.ts";
 import { MenuItem } from "@/data/menu_item";
 import useCounter from "hooks/useCounter.ts";
@@ -15,17 +15,17 @@ export default function ItemModal({
 }: {
   // types of each props
   open: boolean;
-  setOpen: (open: boolean) => void;
+  setOpen: () => void;
   item_obj: MenuItem;
 }) {
   const { count, setCount, increment, decrement } = useCounter(1);
   const [instruction, setInstruction] = useState("");
-  const price = item_obj["Price"];
-  const description = item_obj["Description"];
-  const itemName = item_obj["Name"];
+  const price: number = item_obj["Price"];
+  const description: string = item_obj["Description"];
+  const itemName: string = item_obj["Name"];
 
   // disables dec counter buttom if count == 1 as we cannot have 0 or negative items
-  function decCounterButton() {
+  function decCounterButton(): ReactNode {
     if (count === 1) {
       return (
         <button
@@ -49,7 +49,7 @@ export default function ItemModal({
   return (
     <div
       onClick={() => {
-        setOpen(false);
+        setOpen();
         setCount(1);
       }}
       className={styles.overlay}
@@ -86,7 +86,7 @@ export default function ItemModal({
           <div className={styles["exit-add-button-container"]}>
             <button
               onClick={() => {
-                setOpen(false);
+                setOpen();
                 setCount(1);
               }}
               className={styles["exit-button"]}
