@@ -31,7 +31,7 @@ export default function Navbar() {
             alt="cart"
             className={styles.cart}
           />
-          <div className={styles["cart-quantity"]}>8</div>
+          <div className={styles["cart-quantity"]}>{}</div>
         </div>
       </div>
     </div>
