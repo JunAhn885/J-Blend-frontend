@@ -6,9 +6,10 @@ import ItemModal from "./item-modal";
 import { useState } from "react";
 import { menu_item, MenuItem, MenuCategory } from "data/menu_item";
 import { formatCurrency } from "utilities/formatCurrency";
+import useToggle from "@/hooks/useToggle";
 
 export default function Item() {
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const { value, toggleValue } = useToggle(false);
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
 
   // processes the list of item objects
@@ -17,7 +18,7 @@ export default function Item() {
       return (
         <div
           onClick={() => {
-            setOpenModal(true);
+            toggleValue();
             setSelectedItem(item);
           }}
           className={styles["item-box"]}
@@ -59,11 +60,7 @@ export default function Item() {
       return null;
     } else {
       return (
-        <ItemModal
-          open={openModal}
-          setOpen={setOpenModal}
-          item_obj={selectedItem}
-        />
+        <ItemModal open={value} setOpen={toggleValue} item_obj={selectedItem} />
       );
     }
   }
