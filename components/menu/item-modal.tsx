@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { formatCurrency } from "utilities/formatCurrency.ts";
 import { MenuItem } from "@/data/menu_item";
+import useCounter from "hooks/useCounter.ts";
+import calTotalPrice from "@/utilities/calTotalPrice";
 
 export default function ItemModal({
   // props
@@ -16,28 +18,18 @@ export default function ItemModal({
   setOpen: (open: boolean) => void;
   item_obj: MenuItem;
 }) {
-  const [count, setCount] = useState(1);
+  const { count, setCount, increment, decrement } = useCounter(1);
   const [instruction, setInstruction] = useState("");
-
-  function decCounter() {
-    setCount(count - 1);
-  }
-
-  function incCounter() {
-    setCount(count + 1);
-  }
-
-  function calTotalPrice() {
-    let price = item_obj["Price"] * count;
-    return Math.round(price * 100) / 100;
-  }
+  const price = item_obj["Price"];
+  const description = item_obj["Description"];
+  const itemName = item_obj["Name"];
 
   // disables dec counter buttom if count == 1 as we cannot have 0 or negative items
   function decCounterButton() {
     if (count === 1) {
       return (
         <button
-          onClick={decCounter}
+          onClick={decrement}
           disabled
           className={styles["button-disabled"]}
         >
@@ -45,7 +37,7 @@ export default function ItemModal({
         </button>
       );
     } else {
-      return <button onClick={decCounter}>-</button>;
+      return <button onClick={decrement}>-</button>;
     }
   }
 
@@ -70,15 +62,15 @@ export default function ItemModal({
       >
         <div className={styles["modal-content"]}>
           <Image src="/chirashi.jpeg" width="300" height="300" alt="Chirashi" />
-          <h1>{item_obj["Name"]}</h1>
-          <h2>{formatCurrency(item_obj["Price"])}</h2>
-          <h3>{item_obj["Description"]}</h3>
+          <h1>{itemName}</h1>
+          <h2>{formatCurrency(price)}</h2>
+          <h3>{description}</h3>
           <div className={styles["quantity-button-container"]}>
             {decCounterButton()}
             <div className={styles["center-vertically"]}>
               <p>{count}</p>
             </div>
-            <button onClick={incCounter}>+</button>
+            <button onClick={increment}>+</button>
           </div>
           <form className={styles["special-instruction"]}>
             <label>Special Instructions:</label>
@@ -102,7 +94,7 @@ export default function ItemModal({
               x
             </button>
             <button className={styles["add-button"]}>
-              {`Add to order ${formatCurrency(calTotalPrice())}`}
+              {`Add to order ${formatCurrency(calTotalPrice(price, count))}`}
             </button>
           </div>
         </div>
