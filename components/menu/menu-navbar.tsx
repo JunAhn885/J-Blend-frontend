@@ -1,10 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { useCartContext } from "@/context/cartContext";
 import styles from "components/stylesheets/menu-navbar.module.css";
 import Image from "next/image";
 
 export default function Navbar() {
   // will be fetched from an api endpoint
   const menu_categories = ["Donburi", "Salad", "Soup", "Side", "Drinks"];
+  const { getCartTotalQuantity } = useCartContext();
 
   const navbar_elements = menu_categories.map((item) => {
     return (
@@ -31,7 +33,9 @@ export default function Navbar() {
             alt="cart"
             className={styles.cart}
           />
-          <div className={styles["cart-quantity"]}>{}</div>
+          <div className={styles["cart-quantity"]}>
+            {getCartTotalQuantity()}
+          </div>
         </div>
       </div>
     </div>
