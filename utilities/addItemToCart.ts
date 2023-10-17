@@ -1,8 +1,22 @@
+import { createContext, useContext, useState } from "react";
+
 export type CartItem = {
   id: number;
   quantity: number;
   request: string;
 };
+
+export const CartContext = createContext<CartItem[] | undefined>(undefined);
+
+export function useCartContext() {
+  const shoppingCart = useContext(CartContext);
+
+  if (shoppingCart === undefined) {
+    throw new Error("useCartContext must be used with a CartContext");
+  }
+
+  return shoppingCart;
+}
 
 export const shoppingCart: CartItem[] = [];
 
