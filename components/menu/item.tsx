@@ -3,14 +3,16 @@
 import styles from "components/stylesheets/item.module.css";
 import Image from "next/image";
 import ItemModal from "./item-modal";
-import { useState } from "react";
-import { menu_item, MenuItem, MenuCategory } from "data/menu_item";
+import { useContext, useState } from "react";
+import { MenuItem, MenuCategory } from "data/menu_item";
 import { formatCurrency } from "utilities/formatCurrency";
 import useToggle from "@/hooks/useToggle";
+import { useMenuItemContext } from "@/context/menuItemContext";
 
 export default function Item() {
   const { value, toggleValue } = useToggle(false);
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const menu_item = useMenuItemContext();
 
   // processes the list of item objects
   function processItem(item_type_obj: MenuCategory, key: string) {
