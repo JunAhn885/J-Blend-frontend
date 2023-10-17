@@ -6,6 +6,7 @@ import { formatCurrency } from "utilities/formatCurrency.ts";
 import { MenuItem } from "@/data/menu_item";
 import useCounter from "hooks/useCounter.ts";
 import calTotalPrice from "@/utilities/calTotalPrice";
+import addItemToCart from "@/utilities/addItemToCart";
 
 export default function ItemModal({
   // props
@@ -23,6 +24,7 @@ export default function ItemModal({
   const price: number = item_obj["Price"];
   const description: string = item_obj["Description"];
   const itemName: string = item_obj["Name"];
+  const id: number = item_obj["id"];
 
   // disables dec counter buttom if count == 1 as we cannot have 0 or negative items
   function decCounterButton(): ReactNode {
@@ -93,7 +95,12 @@ export default function ItemModal({
             >
               x
             </button>
-            <button className={styles["add-button"]}>
+            <button
+              className={styles["add-button"]}
+              onClick={() =>
+                addItemToCart({ id: id, quantity: count, request: instruction })
+              }
+            >
               {`Add to order ${formatCurrency(calTotalPrice(price, count))}`}
             </button>
           </div>
