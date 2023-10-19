@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type CounterState = {
-  count: Number;
+  count: number;
 };
 
 type CounterFunction = {

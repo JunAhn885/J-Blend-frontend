@@ -1,0 +1,36 @@
+.quantity-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.quantity-button-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  font-size: 25px;
+}
+
+.button-disabled:hover {
+  cursor: not-allowed !important;
+  background-color: rgb(233, 233, 233) !important;
+}
+
+.quantity-button-container button:hover {
+  cursor: pointer;
+  background-color: rgb(152, 152, 152);
+  -webkit-transition: background-color 100ms linear;
+  -ms-transition: background-color 100ms linear;
+  transition: background-color 100ms linear;
+}
+
+.quantity-button-container p {
+  margin: 0 15px;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center;
+}

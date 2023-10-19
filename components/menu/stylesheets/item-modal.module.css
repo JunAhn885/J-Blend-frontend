@@ -77,7 +77,7 @@
 .special-instruction {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin: 30px 0px;
 }
 
 .special-instruction input {

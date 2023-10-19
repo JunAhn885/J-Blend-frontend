@@ -1,0 +1,14 @@
+.cart-page {
+  width: 70vw;
+  max-width: 2600px;
+  margin: 0 auto;
+}
+
+.cart-content {
+  display: flex;
+
+  width: 70vw;
+  max-width: 2600px;
+  margin: 0 auto;
+  justify-content: space-between;
+}

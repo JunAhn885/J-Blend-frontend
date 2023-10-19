@@ -1,0 +1,23 @@
+.checkout {
+  max-width: 333px;
+  width: 333px;
+  max-height: 200px;
+}
+
+.price-breakdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-button {
+  width: 100%;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.checkout-button:hover {
+  cursor: pointer;
+  background-color: rgb(185, 185, 185);
+  transition: 0.5s;
+}

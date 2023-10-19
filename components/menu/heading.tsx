@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import styles from "components/stylesheets/heading.module.css";
+import styles from "components/menu/stylesheets/heading.module.css";
 import Image from "next/image";
 
 export default function Heading() {

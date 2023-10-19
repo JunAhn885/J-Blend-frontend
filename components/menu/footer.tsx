@@ -1,4 +1,4 @@
-import styles from "components/stylesheets/menu-footer.module.css";
+import styles from "components/menu/stylesheets/menu-footer.module.css";
 
 export default function Footer() {
   return (
