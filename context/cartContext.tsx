@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export type CartItem = {
   id: number;
@@ -25,14 +26,14 @@ export function useCartContext() {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useLocalStorage<CartItem[]>("cart", []);
 
   function addItemToCart(item: CartItem) {
     const id: number = item.id;
     const quantity = item.quantity;
 
     // find the index of the item with the matching id. if not found, itemIndex = -1
-    const itemIndex = cart.findIndex((item) => item.id === id);
+    const itemIndex = cart.findIndex((item: CartItem) => item.id === id);
 
     // check if item is in the cart
     if (itemIndex !== -1) {
@@ -43,7 +44,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   function decQuantityFromCart(id: number) {
-    const itemIndex = cart.findIndex((item) => item.id === id);
+    const itemIndex = cart.findIndex((item: CartItem) => item.id === id);
     console.log(itemIndex);
 
     if (itemIndex !== -1) {
@@ -60,7 +61,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   function removeItemFromCart(id: number) {
-    const itemIndex = cart.findIndex((item) => item.id === id);
+    const itemIndex = cart.findIndex((item: CartItem) => item.id === id);
     if (itemIndex !== -1) {
       let updateCart = [...cart];
       updateCart.splice(itemIndex, 1);
@@ -71,7 +72,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   function getCartTotalQuantity() {
     let cartTotalQuantity = 0;
 
-    cart.forEach((item) => {
+    cart.forEach((item: CartItem) => {
       cartTotalQuantity += item.quantity;
     });
 

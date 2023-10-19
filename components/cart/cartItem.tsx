@@ -16,6 +16,8 @@ export default function CartItem() {
     getCartTotalQuantity,
   } = useCartContext();
 
+  console.log(cart);
+
   return (
     <div className={styles["cart-item"]}>
       <h2>YOUR ORDER{`(5 ITEM)`}</h2>
