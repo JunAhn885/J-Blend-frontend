@@ -1,20 +1,22 @@
 import styles from "components/frequentlyUsed/stylesheets/quantityButton.module.css";
 import { ReactNode } from "react";
 
+type IncreOrDecreFunction = () => void | ((value: any) => void);
+
 export default function QuantityButton({
   count,
   increment,
   decrement,
 }: {
   count: number;
-  increment: () => void;
-  decrement: () => void;
+  increment: IncreOrDecreFunction;
+  decrement: IncreOrDecreFunction;
 }) {
   function decCounterButton(): ReactNode {
     if (count === 1) {
       return (
         <button
-          onClick={decrement}
+          onClick={() => decrement()}
           disabled
           className={styles["button-disabled"]}
         >
@@ -22,7 +24,7 @@ export default function QuantityButton({
         </button>
       );
     } else {
-      return <button onClick={decrement}>-</button>;
+      return <button onClick={() => decrement()}>-</button>;
     }
   }
 
@@ -32,7 +34,7 @@ export default function QuantityButton({
       <div className={styles["center-vertically"]}>
         <p>{count}</p>
       </div>
-      <button onClick={increment}>+</button>
+      <button onClick={() => increment()}>+</button>
     </div>
   );
 }

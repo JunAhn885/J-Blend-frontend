@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import "app/globals.css";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
