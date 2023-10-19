@@ -1,0 +1,23 @@
+.heading {
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  max-width: 2600px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.back-to-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+  height: fit-content;
+  color: black;
+  text-decoration: none;
+}
+
+.back-to-menu span {
+  height: fit-content;
+  margin-right: 5px;
+}

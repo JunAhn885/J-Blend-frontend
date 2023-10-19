@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 "use client";
-import styles from "components/stylesheets/item.module.css";
+import styles from "components/menu/stylesheets/item.module.css";
 import Image from "next/image";
 import ItemModal from "./item-modal";
 import { useContext, useState } from "react";

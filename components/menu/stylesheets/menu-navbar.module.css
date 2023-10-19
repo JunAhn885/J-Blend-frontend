@@ -58,6 +58,7 @@
 .shopping-cart {
   display: flex;
   flex-direction: row;
+  text-decoration: none;
 }
 
 .shopping-cart:hover {

@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useCartContext } from "@/context/cartContext";
-import styles from "components/stylesheets/menu-navbar.module.css";
+import styles from "components/menu/stylesheets/menu-navbar.module.css";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className={styles["nav-wrapper"]}>
         <div className={styles.search}></div>
         <ul className={styles["menu-navbar"]}>{navbar_elements}</ul>
-        <div className={styles["shopping-cart"]}>
+        <a href="/cart" className={styles["shopping-cart"]}>
           <Image
             src="/cart.svg"
             width="36"
@@ -36,7 +36,7 @@ export default function Navbar() {
           <div className={styles["cart-quantity"]}>
             {getCartTotalQuantity()}
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

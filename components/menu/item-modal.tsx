@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import styles from "components/stylesheets/item-modal.module.css";
+import styles from "components/menu/stylesheets/item-modal.module.css";
 import Image from "next/image";
 import { ReactNode, useState } from "react";
 import { formatCurrency } from "utilities/formatCurrency.ts";
@@ -7,6 +7,7 @@ import { MenuItem } from "@/data/menu_item";
 import useCounter from "hooks/useCounter.ts";
 import calTotalPrice from "@/utilities/calTotalPrice";
 import { useCartContext } from "@/context/cartContext";
+import QuantityButton from "../frequentlyUsed/quantityButton";
 
 export default function ItemModal({
   // props
@@ -27,23 +28,6 @@ export default function ItemModal({
   const id: number = item_obj["id"];
   const { addItemToCart, decQuantityFromCart, removeItemFromCart } =
     useCartContext();
-
-  // disables dec counter buttom if count == 1 as we cannot have 0 or negative items
-  function decCounterButton(): ReactNode {
-    if (count === 1) {
-      return (
-        <button
-          onClick={decrement}
-          disabled
-          className={styles["button-disabled"]}
-        >
-          -
-        </button>
-      );
-    } else {
-      return <button onClick={decrement}>-</button>;
-    }
-  }
 
   // do not display the modal if open is false
   if (open == false) {
@@ -69,13 +53,12 @@ export default function ItemModal({
           <h1>{itemName}</h1>
           <h2>{formatCurrency(price)}</h2>
           <h3>{description}</h3>
-          <div className={styles["quantity-button-container"]}>
-            {decCounterButton()}
-            <div className={styles["center-vertically"]}>
-              <p>{count}</p>
-            </div>
-            <button onClick={increment}>+</button>
-          </div>
+
+          <QuantityButton
+            count={count}
+            increment={increment}
+            decrement={decrement}
+          />
           <form className={styles["special-instruction"]}>
             <label>Special Instructions:</label>
             <input
