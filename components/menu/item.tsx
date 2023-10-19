@@ -3,7 +3,7 @@
 import styles from "components/menu/stylesheets/item.module.css";
 import Image from "next/image";
 import ItemModal from "./item-modal";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { MenuItem, MenuCategory } from "data/menu_item";
 import { formatCurrency } from "utilities/formatCurrency";
 import useToggle from "@/hooks/useToggle";

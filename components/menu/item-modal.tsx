@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import styles from "components/menu/stylesheets/item-modal.module.css";
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { formatCurrency } from "utilities/formatCurrency.ts";
 import { MenuItem } from "@/data/menu_item";
 import useCounter from "hooks/useCounter.ts";
@@ -26,8 +26,7 @@ export default function ItemModal({
   const description: string = item_obj["Description"];
   const itemName: string = item_obj["Name"];
   const id: number = item_obj["id"];
-  const { addItemToCart, decQuantityFromCart, removeItemFromCart } =
-    useCartContext();
+  const { addItemToCart } = useCartContext();
 
   // do not display the modal if open is false
   if (open == false) {
@@ -88,10 +87,6 @@ export default function ItemModal({
             >
               {`Add to order ${formatCurrency(calTotalPrice(price, count))}`}
             </button>
-            <div>
-              <button onClick={() => removeItemFromCart(id)}>remove</button>
-              <button onClick={() => decQuantityFromCart(id)}>-</button>
-            </div>
           </div>
         </div>
       </div>
