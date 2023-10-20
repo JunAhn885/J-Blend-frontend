@@ -16,8 +16,6 @@ export default function CartItem() {
     getCartTotalQuantity,
   } = useCartContext();
 
-  const [subTotal, setSubTotal] = useState<number>(0);
-
   // maps through each item in cart and returns jsx of formatted cart items
   const cart_item: ReactNode = cart.map((item: CartItem) => {
     // deconstructing the values inside item object

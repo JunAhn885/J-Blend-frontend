@@ -5,8 +5,8 @@ import { ReactNode } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Menu",
-  description: "Menu page",
+  title: "Cart",
+  description: "Cart page",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

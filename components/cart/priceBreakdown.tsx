@@ -1,10 +1,16 @@
-import styles from "components/cart/stylesheets/priceBreakdown.module.css";
+import styles from "./stylesheets/priceBreakdown.module.css";
 import { useCartContext } from "@/context/cartContext";
 import calculateSubTotal from "utilities/calculateSubTotal.ts";
 import { useState, useEffect } from "react";
 import { formatCurrency } from "@/utilities/formatCurrency";
 
-export default function Checkout() {
+export default function Checkout({
+  buttonTag,
+  href,
+}: {
+  buttonTag: string;
+  href: string;
+}) {
   const { cart } = useCartContext();
   const [subTotal, setSubTotal] = useState<number>(0);
 
@@ -18,9 +24,9 @@ export default function Checkout() {
         <p>Subtotal</p>
         <p>{formatCurrency(subTotal)}</p>
       </div>
-      <button className={styles["checkout-button"]}>
-        Continue to Checkout
-      </button>
+      <a href={href}>
+        <button className={styles["checkout-button"]}>{buttonTag}</button>
+      </a>
     </div>
   );
 }
