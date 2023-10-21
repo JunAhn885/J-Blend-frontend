@@ -1,0 +1,21 @@
+.link-component {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.back-to-menu-button {
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+  width: 60%;
+  margin: 20px 0px;
+  font-size: 20px;
+}
+
+.back-to-menu-button:hover {
+  cursor: pointer;
+  background-color: rgb(193, 193, 193);
+  transition: 0.35s;
+}

@@ -13,7 +13,11 @@ export default function CheckoutPage() {
         <h1>Checkout</h1>
         <div className={styles["checkout-content"]}>
           <Contact />
-          <Checkout buttonTag={"Place Order"} href={"./confirm"} />
+          <Checkout
+            buttonTag={"Place Order"}
+            href={"./confirm"}
+            page={"cart"}
+          />
         </div>
       </div>
     </CartProvider>

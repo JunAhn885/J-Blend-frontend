@@ -7,9 +7,11 @@ import { formatCurrency } from "@/utilities/formatCurrency";
 export default function Checkout({
   buttonTag,
   href,
+  page,
 }: {
   buttonTag: string;
   href: string;
+  page: string | undefined;
 }) {
   const { cart } = useCartContext();
   const [subTotal, setSubTotal] = useState<number>(0);
@@ -24,9 +26,11 @@ export default function Checkout({
         <p>Subtotal</p>
         <p>{formatCurrency(subTotal)}</p>
       </div>
-      <a href={href}>
-        <button className={styles["checkout-button"]}>{buttonTag}</button>
-      </a>
+      {page !== "confirmation" ? (
+        <a href={href}>
+          <button className={styles["checkout-button"]}>{buttonTag}</button>
+        </a>
+      ) : null}
     </div>
   );
 }

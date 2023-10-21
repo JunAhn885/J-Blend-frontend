@@ -4,10 +4,10 @@ import Image from "next/image";
 import calTotalPrice from "@/utilities/calTotalPrice";
 import QuantityButton from "../frequentlyUsed/quantityButton";
 import { menu_item, MenuItem } from "@/data/menu_item";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { formatCurrency } from "@/utilities/formatCurrency";
 
-export default function CartItem() {
+export default function CartItem({ page }: { page: string }) {
   const {
     cart,
     addItemToCart,
@@ -43,8 +43,7 @@ export default function CartItem() {
 
     const itemTotalPrice: number = calTotalPrice(price, quantity);
     const itemTotalPriceFormatted: string = formatCurrency(itemTotalPrice);
-
-    return (
+    const renderCart: ReactNode = (
       <div>
         <div className={styles["item-box"]}>
           <div className={styles["left-content"]}>
@@ -75,11 +74,36 @@ export default function CartItem() {
         </div>
       </div>
     );
+
+    const renderConfirmation: ReactNode = (
+      <div>
+        <div className={styles["item-box"]}>
+          <div className={styles["left-content"]}>
+            <Image src="/chirashi.jpeg" width="100" height="100" alt="photo" />
+            <div className={styles["item-description"]}>
+              <p className={styles["item-name"]}>{name}</p>
+              <p>Special Request:</p>
+              <p className={styles["special-request"]}>{request}</p>
+              <p>Quantity: {quantity}</p>
+            </div>
+          </div>
+          <div className={styles["right-content"]}>
+            <p>{itemTotalPriceFormatted}</p>
+          </div>
+        </div>
+      </div>
+    );
+
+    if (page === "confirmation") {
+      return renderConfirmation;
+    } else return renderCart;
   });
 
   return (
     <div className={styles["cart-item"]}>
-      <h2>YOUR ORDER{` (${getCartTotalQuantity()} ITEMS)`}</h2>
+      {page !== "confirmation" ? (
+        <h2>YOUR ORDER{` (${getCartTotalQuantity()} ITEMS)`}</h2>
+      ) : null}
       {cart_item}
     </div>
   );

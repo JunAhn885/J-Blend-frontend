@@ -12,8 +12,12 @@ export default function Cart() {
         <Heading content={"Back to Menu"} />
         <h1>Your Cart</h1>
         <div className={styles["cart-content"]}>
-          <CartItem />
-          <Checkout buttonTag={"Continue to Checkout"} href={"./checkout"} />
+          <CartItem page={"cart"} />
+          <Checkout
+            buttonTag={"Continue to Checkout"}
+            href={"./checkout"}
+            page={"cart"}
+          />
         </div>
       </div>
     </CartProvider>
