@@ -1,0 +1,7 @@
+.order-detail-section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-bottom: solid grey 1px;
+  align-items: center;
+}

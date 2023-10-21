@@ -1,0 +1,22 @@
+.contact-form {
+  display: flex;
+}
+
+.contact-form input:first-child {
+  margin-right: 10px;
+}
+
+.contact-form input {
+  width: 19vw;
+  padding-left: 20px;
+  height: 40px;
+  border-radius: 5px;
+  border: solid rgb(192, 192, 192) 2px;
+  font-size: 18px;
+}
+
+.contact-form input:hover {
+  cursor: pointer;
+  border: solid rgb(55, 55, 55) 2px;
+  transition: 0.3s;
+}
