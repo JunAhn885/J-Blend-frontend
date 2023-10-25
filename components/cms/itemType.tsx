@@ -2,6 +2,7 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 
 export default function ItemType() {
+  // teporary data. this will be received as a res from a http get request
   const menu_categories: string[] = [
     "Donburi",
     "Salad",
