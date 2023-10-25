@@ -4,14 +4,12 @@ import ItemDescription from "@/components/cms/itemDescription";
 import ItemPhoto from "@/components/cms/itemPhoto";
 import ItemPrice from "@/components/cms/itemPrice";
 import AddItemType from "@/components/cms/addItemType";
-import DisplayAddedItemTypes from "@/components/cms/displayAddedItemTypes";
 
 export default function CMS() {
   // three of the fields: title, price, and SKU or ID share the same input styling, thus will use ItemInput component for reusability
   return (
     <div>
       <div>
-        <DisplayAddedItemTypes />
         <AddItemType />
       </div>
       <div>

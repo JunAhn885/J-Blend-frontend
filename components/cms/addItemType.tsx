@@ -2,11 +2,13 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import DisplayAddedItemTypes from "./displayAddedItemTypes";
 
 export default function AddItemType() {
   const [itemTypeList, setItemTypeList] = useState<string[]>([]);
   const [itemType, setItemType] = useState<string>("");
 
+  // http post request to update the itemtype list in the backend
   function addItemType(): void {
     let itemTypeListCopy = [...itemTypeList];
     itemTypeListCopy.push(itemType);
@@ -14,7 +16,6 @@ export default function AddItemType() {
     setItemType("");
   }
 
-  console.log(itemTypeList);
   return (
     <div>
       <h1>To begin, please add item types below:</h1>
@@ -32,6 +33,7 @@ export default function AddItemType() {
       <Button variant="contained" onClick={addItemType}>
         Add
       </Button>
+      <DisplayAddedItemTypes />
     </div>
   );
 }
