@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
-import ImageUploading, { ImageListType } from "react-images-uploading";
+import ImageUploading, {
+  ImageListType,
+  ImageType,
+} from "react-images-uploading";
 
 export default function ItemPhoto() {
   const [images, setImages] = useState([]);
