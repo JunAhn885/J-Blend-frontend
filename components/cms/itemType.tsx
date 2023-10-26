@@ -2,10 +2,12 @@
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
+import { useItemContext } from "@/context/itemContext";
 
 export default function ItemType() {
   // teporary data. this will be received as a res from a http get request
   const menu_categories: string[] = ["a", "b", "c"];
+  const { item, setType } = useItemContext();
   const [itemType, setItemType] = useState<string>(
     menu_categories.length === 0 ? "Donburi" : menu_categories[0]
   );
@@ -20,7 +22,7 @@ export default function ItemType() {
         defaultValue={itemType}
         helperText="Please select the item type"
         onChange={(e) => {
-          setItemType(e.target.value);
+          setType(e.target.value);
         }}
       >
         {menu_categories.map((option) => (

@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
+import { useItemContext } from "@/context/itemContext";
 import ImageUploading, {
   ImageListType,
   ImageType,
 } from "react-images-uploading";
 
 export default function ItemPhoto() {
-  const [images, setImages] = useState([]);
+  const { item, images, setImages } = useItemContext();
   const maxNumber = 1;
 
   const onChange = (
@@ -18,6 +19,7 @@ export default function ItemPhoto() {
     setImages(imageList as never[]);
   };
 
+  console.log(item);
   return (
     <div className="App">
       <h1>Add a photo</h1>
