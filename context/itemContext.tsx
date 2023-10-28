@@ -2,7 +2,7 @@ import { ReactNode, useContext, useState, createContext } from "react";
 import { ImageListType, ImageType } from "react-images-uploading";
 
 export type Item = {
-  type: string;
+  itemType: string;
   title: string;
   price: number | null;
   id: string | number;
@@ -40,7 +40,7 @@ export function ItemProvider({ children }: { children: ReactNode }) {
   const [images, setImages] = useState<ImageListType>([]);
 
   let item: Item = {
-    type: itemType,
+    itemType: itemType,
     title: itemTitle,
     price: itemPrice,
     id: itemId,

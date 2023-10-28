@@ -3,6 +3,7 @@ import { useCartContext } from "@/context/cartContext";
 import calculateSubTotal from "utilities/calculateSubTotal.ts";
 import { useState, useEffect } from "react";
 import { formatCurrency } from "@/utilities/formatCurrency";
+import Link from "next/link";
 
 export default function Checkout({
   buttonTag,
@@ -27,9 +28,9 @@ export default function Checkout({
         <p>{formatCurrency(subTotal)}</p>
       </div>
       {page !== "confirmation" ? (
-        <a href={href}>
+        <Link href={href}>
           <button className={styles["checkout-button"]}>{buttonTag}</button>
-        </a>
+        </Link>
       ) : null}
     </div>
   );

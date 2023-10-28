@@ -8,7 +8,6 @@ import useCounter from "hooks/useCounter.ts";
 import calTotalPrice from "@/utilities/calTotalPrice";
 import { useCartContext } from "@/context/cartContext";
 import QuantityButton from "../frequentlyUsed/quantityButton";
-import { CSSTransition } from "react-transition-group";
 
 export default function ItemModal({
   // props

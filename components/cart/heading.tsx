@@ -1,5 +1,6 @@
 import styles from "components/cart/stylesheets/heading.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Heading({ content }: { content: string }) {
   const href = (): string => {
@@ -10,10 +11,10 @@ export default function Heading({ content }: { content: string }) {
 
   return (
     <div className={styles.heading}>
-      <a href={href()} className={styles["back-to-menu"]}>
+      <Link href={href()} className={styles["back-to-menu"]}>
         <span>&#10094;</span>
         <p>{content}</p>
-      </a>
+      </Link>
       <Image
         className={styles.logo}
         src="/logo.jpeg"
