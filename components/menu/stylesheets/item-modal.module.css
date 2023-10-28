@@ -54,7 +54,7 @@
 
 .quantity-button-container button:hover {
   cursor: pointer;
-  background-color: rgb(152, 152, 152);
+  background-color: rgb(197, 197, 197);
   -webkit-transition: background-color 100ms linear;
   -ms-transition: background-color 100ms linear;
   transition: background-color 100ms linear;
@@ -96,11 +96,12 @@
   margin-right: 20px;
   background-color: rgb(230, 230, 230);
   font-size: 20px;
+  border-radius: 4px;
 }
 
 .exit-button:hover {
   cursor: pointer;
-  background-color: rgb(152, 152, 152);
+  background-color: rgb(197, 197, 197);
   -webkit-transition: background-color 100ms linear;
   -ms-transition: background-color 100ms linear;
   transition: background-color 100ms linear;
@@ -111,11 +112,12 @@
   border: none;
   background-color: rgb(230, 230, 230);
   font-size: 18px;
+  border-radius: 4px;
 }
 
 .add-button:hover {
   cursor: pointer;
-  background-color: rgb(152, 152, 152);
+  background-color: rgb(197, 197, 197);
   -webkit-transition: background-color 100ms linear;
   -ms-transition: background-color 100ms linear;
   transition: background-color 100ms linear;

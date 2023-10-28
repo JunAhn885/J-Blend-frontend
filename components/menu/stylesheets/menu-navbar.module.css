@@ -59,10 +59,14 @@
   display: flex;
   flex-direction: row;
   text-decoration: none;
+  border: solid rgb(255, 255, 255) 1px;
+  padding: 0px 10px;
 }
 
 .shopping-cart:hover {
   cursor: pointer;
+  border-radius: 15px;
+  border: solid black 1px;
 }
 
 .cart {

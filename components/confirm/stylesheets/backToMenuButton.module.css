@@ -16,6 +16,6 @@
 
 .back-to-menu-button:hover {
   cursor: pointer;
-  background-color: rgb(193, 193, 193);
+  background-color: rgb(197, 197, 197);
   transition: 0.35s;
 }
