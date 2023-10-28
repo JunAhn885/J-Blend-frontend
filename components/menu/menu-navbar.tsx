@@ -2,6 +2,7 @@
 import { useCartContext } from "@/context/cartContext";
 import styles from "components/menu/stylesheets/menu-navbar.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   // will be fetched from an api endpoint
@@ -25,7 +26,7 @@ export default function Navbar() {
       <div className={styles["nav-wrapper"]}>
         <div className={styles.search}></div>
         <ul className={styles["menu-navbar"]}>{navbar_elements}</ul>
-        <a href="/cart" className={styles["shopping-cart"]}>
+        <Link href="/cart" className={styles["shopping-cart"]}>
           <Image
             src="/cart.svg"
             width="36"
@@ -36,7 +37,7 @@ export default function Navbar() {
           <div className={styles["cart-quantity"]}>
             {getCartTotalQuantity()}
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
