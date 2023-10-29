@@ -104,7 +104,7 @@ export default function CartItem({ page }: { page: string }) {
       {page !== "confirmation" ? (
         <h2>YOUR ORDER{` (${getCartTotalQuantity()} ITEMS)`}</h2>
       ) : null}
-      {cart_item}
+      {cart.length === 0 ? <h3>Your Cart is Empty</h3> : cart_item}
     </div>
   );
 }
