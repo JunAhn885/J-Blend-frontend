@@ -31,14 +31,11 @@ export default function CartItem({ page }: { page: string }) {
     let name: string = "";
     let price: number = 0;
 
-    menu_item.forEach((item_type_obj) => {
-      const item_type = Object.keys(item_type_obj)[0];
-      item_type_obj[item_type].forEach((item: MenuItem) => {
-        if (item.id === itemId) {
-          name = item.Name;
-          price = item.Price;
-        }
-      });
+    menu_item.forEach((item_obj) => {
+      if (item_obj.id === itemId) {
+        name = item_obj.name;
+        price = item_obj.price;
+      }
     });
 
     const itemTotalPrice: number = calTotalPrice(price, quantity);

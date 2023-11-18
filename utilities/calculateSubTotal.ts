@@ -8,14 +8,11 @@ export default function calculateSubTotal(cart: CartItem[] | undefined) {
       const itemId: number = item.id;
       const quantity: number = item.quantity;
 
-      menu_item.forEach((item_type_obj) => {
-        const item_type = Object.keys(item_type_obj)[0];
-        item_type_obj[item_type].forEach((item: MenuItem) => {
-          if (item.id === itemId) {
-            const itemTotal: number = item.Price * quantity;
-            subTotal += itemTotal;
-          }
-        });
+      menu_item.forEach((item_obj) => {
+        if (item_obj.id === itemId) {
+          const itemTotal: number = item_obj.price * quantity;
+          subTotal += itemTotal;
+        }
       });
     });
   }

@@ -1,9 +1,7 @@
-import { MenuCategory } from "@/data/menu_item";
+import { MenuItem } from "@/data/menu_item";
 import { createContext, useContext } from "react";
 
-export const MenuItemContext = createContext<MenuCategory[] | undefined>(
-  undefined
-);
+export const MenuItemContext = createContext<MenuItem[] | undefined>(undefined);
 
 export function useMenuItemContext() {
   const menu_item = useContext(MenuItemContext);

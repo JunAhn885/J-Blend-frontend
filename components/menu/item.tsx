@@ -4,7 +4,7 @@ import styles from "components/menu/stylesheets/item.module.css";
 import Image from "next/image";
 import ItemModal from "./item-modal";
 import { useState } from "react";
-import { MenuItem, MenuCategory } from "data/menu_item";
+import { MenuItem, menu_item } from "data/menu_item";
 import { formatCurrency } from "utilities/formatCurrency";
 import useToggle from "@/hooks/useToggle";
 import { useMenuItemContext } from "@/context/menuItemContext";
@@ -12,40 +12,45 @@ import { useMenuItemContext } from "@/context/menuItemContext";
 export default function Item() {
   const { value, toggleValue } = useToggle(false);
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-  const menu_item = useMenuItemContext();
+  // const menu_item = useMenuItemContext();
+  const item_type_list: string[] = ["Donburi", "Salad", "Soup"];
 
-  // processes the list of item objects
-  function processItem(item_type_obj: MenuCategory, key: string) {
-    const item_jsx = item_type_obj[key].map((item: MenuItem) => {
-      return (
-        <div
-          onClick={() => {
-            toggleValue();
-            setSelectedItem(item);
-          }}
-          className={styles["item-box"]}
-          id={item.id}
-          key={item.id}
-        >
-          <div className={styles.info}>
-            <p>{item["Name"]}</p>
-            <div className={styles["description-container"]}>
-              <p className={styles.description}>{item["Description"]}</p>
+  /*
+    based on the exsisting menu types (stored in an array), display only the matching
+    itemType in the menu_item list. 
+      algorithm: for each item type, iterate through the whole menu_item array, and display the matching
+      item type
+  */
+  const item_type_component = item_type_list.map((item_type: string) => {
+    const item = menu_item.map((item_obj: MenuItem) => {
+      if (item_obj.itemType === item_type) {
+        return (
+          <div
+            onClick={() => {
+              toggleValue();
+              setSelectedItem(item_obj);
+            }}
+            className={styles["item-box"]}
+            id={item_obj.id}
+            key={item_obj.id}
+          >
+            <div className={styles.info}>
+              <p>{item_obj.name}</p>
+              <div className={styles["description-container"]}>
+                <p className={styles.description}>{item_obj.description}</p>
+              </div>
+              <p>{formatCurrency(item_obj.price)}</p>
             </div>
-            <p>{formatCurrency(item["Price"])}</p>
+            <Image
+              src="/chirashi.jpeg"
+              width="100"
+              height="100"
+              alt="Chirashi"
+            />
           </div>
-          <Image src="/chirashi.jpeg" width="100" height="100" alt="Chirashi" />
-        </div>
-      );
+        );
+      }
     });
-
-    return item_jsx;
-  }
-
-  // passes list of item objects per item type to the processItem function
-  const item_type_component = menu_item.map((item_type_obj: MenuCategory) => {
-    const item_type = Object.keys(item_type_obj)[0];
-    const item = processItem(item_type_obj, item_type);
 
     return (
       <div className={styles["item-type"]} key={item_type}>

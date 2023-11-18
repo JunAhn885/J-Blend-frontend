@@ -23,10 +23,10 @@ export default function ItemModal({
   const { count, setCount, increment, decrement } = useCounter(1);
   const [shouldRender, setShouldRender] = useState(open);
   const [instruction, setInstruction] = useState("");
-  const price: number = item_obj["Price"];
-  const description: string = item_obj["Description"];
-  const itemName: string = item_obj["Name"];
-  const id: number = item_obj["id"];
+  const price: number = item_obj.price;
+  const description: string = item_obj.description;
+  const itemName: string = item_obj.name;
+  const id: number = item_obj.id;
   const { addItemToCart } = useCartContext();
 
   useEffect(() => {
