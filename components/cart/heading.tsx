@@ -17,7 +17,7 @@ export default function Heading({ content }: { content: string }) {
       </Link>
       <Image
         className={styles.logo}
-        src="/logo.jpeg"
+        src="/jBlend_logo.svg"
         height="150"
         width="150"
         alt="logo"

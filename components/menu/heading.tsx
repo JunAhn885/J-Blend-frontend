@@ -6,7 +6,7 @@ export default function Heading() {
   return (
     <div className={styles.heading}>
       <Image
-        src="/logo.jpeg"
+        src="/jBlend_logo.svg"
         width="250"
         height="250"
         alt="logo"

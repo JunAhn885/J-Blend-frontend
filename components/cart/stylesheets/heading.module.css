@@ -7,6 +7,10 @@
   margin-bottom: 50px;
 }
 
+.logo {
+  margin-top: 40px;
+}
+
 .back-to-menu {
   display: flex;
   flex-direction: row;
