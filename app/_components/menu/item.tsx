@@ -14,6 +14,7 @@ export default function Item() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   // const menu_item = useMenuItemContext();
   const item_type_list: string[] = ["Donburi", "Salad", "Soup"];
+  console.log(typeof menu_item[0].id);
 
   /*
     based on the exsisting menu types (stored in an array), display only the matching
@@ -31,7 +32,6 @@ export default function Item() {
               setSelectedItem(item_obj);
             }}
             className={styles["item-box"]}
-            id={item_obj.id}
             key={item_obj.id}
           >
             <div className={styles.info}>
