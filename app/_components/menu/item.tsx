@@ -7,7 +7,6 @@ import { useState } from "react";
 import { MenuItem, menu_item } from "@/app/_data/menu_item";
 import { formatCurrency } from "@/app/_util/formatCurrency";
 import useToggle from "@/app/_hooks/useToggle";
-import { useMenuItemContext } from "@/app/_context/menuItemContext";
 
 export default function Item() {
   const { value, toggleValue } = useToggle(false);
