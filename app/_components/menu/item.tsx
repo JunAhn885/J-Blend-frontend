@@ -14,7 +14,6 @@ export default function Item() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   // const menu_item = useMenuItemContext();
   const item_type_list: string[] = ["Donburi", "Salad", "Soup"];
-  console.log(typeof menu_item[0].id);
 
   /*
     based on the exsisting menu types (stored in an array), display only the matching
