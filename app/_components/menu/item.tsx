@@ -31,7 +31,6 @@ export default function Item() {
               setSelectedItem(item_obj);
             }}
             className={styles["item-box"]}
-            id={item_obj.id}
             key={item_obj.id}
           >
             <div className={styles.info}>

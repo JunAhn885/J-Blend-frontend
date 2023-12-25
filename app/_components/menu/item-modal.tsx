@@ -37,74 +37,67 @@ export default function ItemModal({
     if (!open) setShouldRender(false);
   };
 
-  return (
-    open && (
+  return open ? (
+    <div
+      onClick={() => {
+        setOpen();
+        setCount(1);
+      }}
+      className={styles.overlay}
+    >
       <div
-        onClick={() => {
-          setOpen();
-          setCount(1);
+        onClick={(e) => {
+          e.stopPropagation();
         }}
-        className={styles.overlay}
+        className={styles.modal}
       >
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          className={styles.modal}
-        >
-          <div className={styles["modal-content"]}>
-            <Image
-              src="/chirashi.jpeg"
-              width="300"
-              height="300"
-              alt="Chirashi"
-            />
-            <h1>{itemName}</h1>
-            <h2>{formatCurrency(price)}</h2>
-            <h3>{description}</h3>
+        <div className={styles["modal-content"]}>
+          <Image src="/chirashi.jpeg" width="300" height="300" alt="Chirashi" />
+          <h1>{itemName}</h1>
+          <h2>{formatCurrency(price)}</h2>
+          <h3>{description}</h3>
 
-            <QuantityButton
-              count={count}
-              increment={increment}
-              decrement={decrement}
+          <QuantityButton
+            count={count}
+            increment={increment}
+            decrement={decrement}
+          />
+          <form className={styles["special-instruction"]}>
+            <label>Special Instructions:</label>
+            <input
+              type="text"
+              id="instruction"
+              name="special instruction"
+              onChange={(e) => {
+                setInstruction(e.target.value);
+              }}
             />
-            <form className={styles["special-instruction"]}>
-              <label>Special Instructions:</label>
-              <input
-                type="text"
-                id="instruction"
-                name="special instruction"
-                onChange={(e) => {
-                  setInstruction(e.target.value);
-                }}
-              />
-            </form>
-            <div className={styles["exit-add-button-container"]}>
-              <button
-                onClick={() => {
-                  setOpen();
-                  setCount(1);
-                }}
-                className={styles["exit-button"]}
-              >
-                x
-              </button>
-              <button
-                className={styles["add-button"]}
-                onClick={() =>
-                  addItemToCart({
-                    id: id,
-                    quantity: count,
-                    request: instruction,
-                  })
-                }
-              >
-                {`Add to order ${formatCurrency(calTotalPrice(price, count))}`}
-              </button>
-            </div>
+          </form>
+          <div className={styles["exit-add-button-container"]}>
+            <button
+              onClick={() => {
+                setOpen();
+                setCount(1);
+              }}
+              className={styles["exit-button"]}
+            >
+              x
+            </button>
+            <button
+              className={styles["add-button"]}
+              onClick={() =>
+                addItemToCart({
+                  id: id,
+                  quantity: count,
+                  request: instruction,
+                })
+              }
+            >
+              {`Add to order ${formatCurrency(calTotalPrice(price, count))}`}
+            </button>
           </div>
         </div>
       </div>
-    )
-  );
+    </div>
+  ) : null;
 }

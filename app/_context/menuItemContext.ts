@@ -1,4 +1,4 @@
-import { MenuItem } from "@/data/menu_item";
+import { MenuItem } from "@/app/_data/menu_item";
 import { createContext, useContext } from "react";
 
 export const MenuItemContext = createContext<MenuItem[] | undefined>(undefined);
